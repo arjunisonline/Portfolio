@@ -43,8 +43,8 @@ export default function HeroSection() {
         <h2 className="text-xl sm:text-2xl md:text-3xl min-h-[40px] textScramble"></h2>
       </div>
       <div className="flex my-10 gap-5">
-        <a href="/resume" target="_blank" className="px-3 py-1 backdrop-blur-md border border-white/40 rounded-xl">Resume</a>
-        <a href="#contact" className="px-3 py-1 backdrop-blur-md border border-white/40 rounded-xl">Hire Me</a>
+        <a href="/resume" target="_blank" className="px-3 py-1 backdrop-blur-md border border-white/40 rounded-xl text-md xl:text-xl">Resume</a>
+        <a href="#contact" className="px-3 py-1 backdrop-blur-md border border-white/40 rounded-xl text-md xl:text-xl">Hire Me</a>
       </div>
     </div>
   );

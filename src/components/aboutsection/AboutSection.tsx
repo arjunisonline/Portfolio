@@ -40,7 +40,7 @@ export default function AboutSection() {
               />
             </div>
             <div className="space-y-5 about-item">
-              <p className="leading-relaxed">
+              <p className="leading-relaxed xl:text-xl">
                 Hi, I'm Arjun — a software developer who spends most of his time
                 convincing computers to do what they were literally designed to
                 do. I mainly work with React and Node, building modern web and
@@ -50,7 +50,7 @@ export default function AboutSection() {
                 because of a missing semicolon somewhere.
               </p>
 
-              <p className="leading-relaxed">
+              <p className="leading-relaxed xl:text-xl">
                 When I'm not writing code, I'm probably still writing code… just
                 for my home server. Currently experimenting with things like
                 Docker, Pi-hole, and Home Assistant, because apparently hosting
@@ -58,13 +58,13 @@ export default function AboutSection() {
                 infrastructure first?
               </p>
 
-              <p className="leading-relaxed">
+              <p className="leading-relaxed xl:text-xl">
                 Outside of development, I spend time surfing the web, playing
                 games, making content for social media, and occasionally
                 rage-quitting Valorant while blaming ping, teammates, or the
                 universe in general.
               </p>
-              <div className="inline-flex gap-3 p-3 items-center border border-white/40 bg-white/5 backdrop-blur-sm rounded-2xl">
+              <div className="inline-flex gap-3 p-3 items-center border border-white/40 bg-white/5 backdrop-blur-sm rounded-2xl text-md xl:text-xl">
                 <IoLocation fill="white" />
                 <p>Kerala, India</p>
               </div>
