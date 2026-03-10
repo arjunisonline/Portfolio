@@ -1,8 +1,8 @@
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { ScrambleTextPlugin } from "gsap/all";
 import { useRef } from "react";
 import { TextPlugin } from "gsap/TextPlugin";
+import ScrambleTextPlugin from "gsap/ScrambleTextPlugin";
 
 gsap.registerPlugin(ScrambleTextPlugin, TextPlugin);
 export default function HeroSection() {

@@ -71,14 +71,14 @@ export default function ExperienceSection() {
       <h1 className="text-center text-4xl md:text-6xl mb-20">Experience</h1>
 
       <div className="relative w-full max-w-sm sm:max-w-md md:max-w-2xl lg:max-w-4xl xl:max-w-5xl mx-auto px-4">
-        <div className="absolute left-6 top-2 h-full w-[2px] bg-white/20"></div>
+        <div className="timeline-line absolute left-6 top-2 h-full w-[2px] bg-white/20"></div>
 
         {data.map((item, index) => (
           <div key={index} className="relative pl-12 mb-16 exp-card">
             <div className="absolute left-[2px] top-2 w-4 h-4 bg-(--primaryColor) rounded-full"></div>
 
             <div className="border border-white/20 rounded-xl p-6 backdrop-blur-sm bg-white/5 hover:border-(--primaryColor) transition">
-              <h3 className="text-2xl font-bold">{item.position}</h3>
+              <h2 className="text-2xl font-bold">{item.position}</h2>
 
               <p className="text-(--primaryColor) font-semibold">
                 {item.company}
@@ -88,7 +88,7 @@ export default function ExperienceSection() {
 
               <div className="flex flex-col gap-2">
                 {item.desc.map((desc, i) => (
-                  <p key={i} className="text-gray-300 text-sm leading-relaxed">
+                  <p key={i} className="text-gray-300 text-md">
                     • {desc}
                   </p>
                 ))}

@@ -98,25 +98,25 @@ export default function ContactSection() {
                 </div>
               </div>
               <div className="flex justify-evenly">
-                <a href="https://github.com/arjunisonline">
+                <a href="https://github.com/arjunisonline" aria-label="github">
                   <FaGithub
                     size={30}
                     className=" hover:text-(--primaryColor) hover:scale-120 transition duration-300 cursor-pointer"
                   />
                 </a>
-                <a href="https://www.linkedin.com/in/arjunssisonlinee/">
+                <a href="https://www.linkedin.com/in/arjunssisonlinee/" aria-label="linkedin">
                   <FaLinkedin
                     size={30}
                     className=" hover:text-(--primaryColor) hover:scale-120 transition duration-300 cursor-pointer"
                   />
                 </a>
-                <a href="https://t.me/Botisonline">
+                <a href="https://t.me/Botisonline" aria-label="telegram">
                   <FaTelegram
                     size={30}
                     className=" hover:text-(--primaryColor) hover:scale-120 transition duration-300 cursor-pointer"
                   />
                 </a>
-                <a href="https://leetcode.com/u/1XLUhT7fPK/">
+                <a href="https://leetcode.com/u/1XLUhT7fPK/" aria-label="leetcode">
                   <SiLeetcode
                     size={30}
                     className=" hover:text-(--primaryColor) hover:scale-120 transition duration-300 cursor-pointer"

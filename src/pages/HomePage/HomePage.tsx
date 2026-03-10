@@ -13,13 +13,14 @@ export default function HomePage() {
       <div className="relative w-full min-h-full">
         {/* Background Video */}
         <video
+        
           autoPlay
           muted
           loop
           playsInline
           className="fixed top-0 left-0 w-full h-full object-cover opacity-30 -z-10"
         >
-          <source src="/videos/bg.mp4" type="video/mp4" />
+          <source src="https://res.cloudinary.com/dk469fcxw/video/upload/f_auto,q_auto/v1773175823/bg_fjbdnb.mp4" type="video/mp4" />
         </video>
 
         <Navbar />
