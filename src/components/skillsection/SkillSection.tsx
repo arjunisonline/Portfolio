@@ -107,11 +107,11 @@ export default function SkillSection() {
   );
 
   return (
-    <section className="overflow-hidden py-16 mx-4 md:mx-30">
+    <section className="overflow-x-hidden py-16 mx-4 md:mx-30">
       <h2 className="text-center text-4xl md:text-6xl mb-12">My Skills</h2>
 
-      <div ref={containerRef}>
-        <div ref={firstTrackRef} className="flex items-center gap-10 w-max">
+      <div ref={containerRef} className="overflow-hidden w-full">
+        <div ref={firstTrackRef} className="flex items-center gap-10 w-max will-change-transform">
           {firstLoopedSkills.map((data, index) => (
             <div
               key={index}
