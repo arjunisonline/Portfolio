@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
 import "./App.css";
 import HomePage from "./pages/HomePage/HomePage";
 import ViewResume from "./utils/resume/ViewResume";
@@ -12,6 +13,7 @@ function App() {
           <Route path="/resume" element={<ViewResume />} />
         </Routes>
       </BrowserRouter>
+      <Analytics />
     </>
   );
 }
