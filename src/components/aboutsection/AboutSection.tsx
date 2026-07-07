@@ -71,16 +71,17 @@ export default function AboutSection() {
 
               <div className="flex gap-10 about-item justify-center">
                 <a href="mailto:arjunisonlinee@gmail.com">
-                  <img src="/images/gmail.svg" alt="h-20 w-20 object-contain" />
+                  <img src="/images/gmail.svg" className="h-20 w-20 object-contain" alt="Gmail" />
                 </a>
                 <a href="https://github.com/arjunisonline">
                   <img
                     src="/images/github.svg"
-                    alt="h-20 w-20 object-contain"
+                    className="h-20 w-20 object-contain"
+                    alt="GitHub"
                   />
                 </a>
                 <a href="https://www.linkedin.com/in/arjunssisonlinee/">
-                  <img src="/images/ln.svg" alt="h-20 w-20 object-contain" />
+                  <img src="/images/ln.svg" className="h-20 w-20 object-contain" alt="LinkedIn" />
                 </a>
               </div>
             </div>

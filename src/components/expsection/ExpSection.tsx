@@ -5,17 +5,38 @@ import { useRef } from "react";
 
 const data = [
   {
-    position: "Associate Software Engineer",
-    company: "Cloud Forest Innovationss",
-    time: "Jan 2026 - Present",
+    position: "Software Engineer",
+    company: "Updown-Interactive",
+    time: "Mar 2026 - Present",
     desc: [
-      "Delivered a production-grade static website using React with Strapi CMS, enabling non-technical teams to manage content independently.",
-      " Developed a cross-platform invoicing application for event management using Flutter with Hive for local data persistence.",
-      " Owned production debugging and issue resolution, reducing downtime and stabilizing live customer-facing systems.",
-      "  Collaborated with designers and stakeholders to translate business requirements into deployable features.",
+      <span>
+        Collaborated on the development of the business management utility{" "}
+        <a
+          href="https://ubilly.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-(--primaryColor) hover:underline font-medium"
+        >
+          ubilly.com
+        </a>
+        .
+      </span>,
     ],
 
-    skills: ["Debugging", "Clean Codes", "System Architecture", "SEO"],
+    skills: ["Debugging", "Clean Code", "System Architecture", "SEO"],
+  },
+  {
+    position: "Associate Software Engineer",
+    company: "Cloud Forest Innovations",
+    time: "Oct 2025 - Mar 2026",
+    desc: [
+      "Developed a production-grade static website using React with Strapi CMS, enabling non-technical teams to manage content independently.",
+      "Developed a cross-platform invoicing application for event management using Flutter with Hive for local data persistence.",
+      "Owned production debugging and issue resolution, reducing downtime and stabilizing live customer-facing systems.",
+      "Collaborated with designers and stakeholders to translate business requirements into deployable features.",
+    ],
+
+    skills: ["Debugging", "Clean Code", "System Architecture", "SEO"],
   },
   {
     position: "MERN Stack Intern",

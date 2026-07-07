@@ -9,8 +9,8 @@ gsap.registerPlugin(_ScrollTrigger);
 export default function ProjectSection() {
   const projectData = [
     {
-      name: "Nikee",
-      desc: "At Nikee, we blend innovation and style to create footwear that performs and inspires. Whether you're on the street or the track, our mission is to elevate your every step.",
+      name: "Nike",
+      desc: "At Nike, we blend innovation and style to create footwear that performs and inspires. Whether you're on the street or the track, our mission is to elevate your every step.",
       link: "https://nikee-ecommerce-1.onrender.com",
       codelink: "https://github.com/arjunisonline/Nikee-ecommerce",
       skills: ["API Design", "MERN", "Render", "Data Modeling", "Deployment"],
@@ -18,9 +18,9 @@ export default function ProjectSection() {
     {
       name: "Car Vista",
       desc: "A CRUD-based web application built with PHP for managing car listings. The system allows administrators to add, update, and remove vehicle details while providing users with an interface to view available cars. Designed with a focus on database management and structured backend logic.",
-      link: "https://nikee-ecommerce-1.onrender.com",
+      link: "",
       codelink: "https://github.com/arjunisonline/carvista",
-      skills: ["php", "MySql", "Netlify", "Deployment"],
+      skills: ["PHP", "MySQL", "Netlify", "Deployment"],
     },
     {
       name: "Task Manager",
@@ -90,14 +90,16 @@ export default function ProjectSection() {
                 </div>
 
                 <div className="flex gap-3 mt-auto">
-                  <a
-                    target="_blank"
-                    href={item.link}
-                    className="flex items-center justify-center gap-1 p-2 border border-white/20 rounded-xl hover:bg-white/40 w-full text-sm cursor-pointer"
-                  >
-                    <MdArrowOutward />
-                    Demo
-                  </a>
+                  {item.link && (
+                    <a
+                      target="_blank"
+                      href={item.link}
+                      className="flex items-center justify-center gap-1 p-2 border border-white/20 rounded-xl hover:bg-white/40 w-full text-sm cursor-pointer"
+                    >
+                      <MdArrowOutward />
+                      Demo
+                    </a>
+                  )}
 
                   <a
                     target="_blank"

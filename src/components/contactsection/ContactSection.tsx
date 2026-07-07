@@ -30,6 +30,7 @@ export default function ContactSection() {
       },
       (error) => {
         console.log(error.text);
+        setisLoading(false);
       },
     );
   };
@@ -48,7 +49,8 @@ export default function ContactSection() {
                 required
                 type="text"
                 name="name"
-                id=""
+                id="contact-name"
+                aria-label="Name"
                 placeholder="Name"
                 className="border border-white/20  m-2 p-3 rounded-md text-white"
               />
@@ -56,7 +58,8 @@ export default function ContactSection() {
                 required
                 type="email"
                 name="email"
-                id=""
+                id="contact-email"
+                aria-label="E-Mail"
                 placeholder="E-Mail"
                 className="border border-white/20  m-2 p-3 rounded-md text-white"
               />
@@ -65,7 +68,8 @@ export default function ContactSection() {
             <textarea
               required
               name="message"
-              id=""
+              id="contact-message"
+              aria-label="Message"
               rows={6}
               placeholder="message"
               className="border border-white/20 m-2 p-3 rounded-md text-white"
@@ -87,14 +91,14 @@ export default function ContactSection() {
                 <MdOutlineMail color="white" size={40} />
                 <div>
                   <p className="text-white/40">Email</p>
-                  <a href="">arjunisonlinee@gmail.com</a>
+                  <a href="mailto:arjunisonlinee@gmail.com" className="hover:text-(--primaryColor) transition duration-300">arjunisonlinee@gmail.com</a>
                 </div>
               </div>
               <div className="flex items-center gap-5">
                 <IoLocationOutline color="white" size={40} />
                 <div>
                   <p className="text-white/40">Location</p>
-                  <a href="">Kerala, India</a>
+                  <a href="https://maps.google.com/?q=Kerala,+India" target="_blank" rel="noopener noreferrer" className="hover:text-(--primaryColor) transition duration-300">Kerala, India</a>
                 </div>
               </div>
               <div className="flex justify-evenly">

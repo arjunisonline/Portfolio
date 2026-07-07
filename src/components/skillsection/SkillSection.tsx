@@ -63,7 +63,7 @@ export default function SkillSection() {
       const firstTrack = firstTrackRef.current;
       const secondTrack = secondTrackRef.current;
       const thirdTrack = thirdTrackRef.current;
-      if (!firstTrack || !secondTrack) return;
+      if (!firstTrack || !secondTrack || !thirdTrack) return;
 
       const totalWidth = firstTrack.scrollWidth / 4;
 
