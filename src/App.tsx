@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
 import { ReactLenis, useLenis } from "lenis/react";
 import gsap from "gsap";
@@ -26,6 +26,7 @@ function App() {
     >
       <GsapLenisSync />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/resume" element={<ViewResume />} />
@@ -36,6 +37,22 @@ function App() {
       <Analytics />
     </ReactLenis>
   );
+}
+
+function ScrollToTop() {
+  const { pathname, hash } = useLocation();
+  const lenis = useLenis();
+
+  useEffect(() => {
+    if (!hash) {
+      window.scrollTo(0, 0);
+      if (lenis) {
+        lenis.scrollTo(0, { immediate: true });
+      }
+    }
+  }, [pathname, hash, lenis]);
+
+  return null;
 }
 
 function GsapLenisSync() {
