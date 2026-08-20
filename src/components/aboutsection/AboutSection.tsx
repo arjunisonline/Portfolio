@@ -28,7 +28,7 @@ export default function AboutSection() {
 
   return (
     <>
-      <section id="about" ref={containerRef}>
+      <section id="about" ref={containerRef} className="min-h-dvh flex flex-col justify-center py-16">
         <h1 className="text-center text-4xl md:text-6xl">About Me</h1>
         <div className="mx-4 md:mx-30">
           <div className="grid grid-cols-1 md:grid-cols-2 justify-evenly my-10 md:my-30 items-center">

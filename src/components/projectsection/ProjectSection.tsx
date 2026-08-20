@@ -3,6 +3,7 @@ import gsap from "gsap";
 import _ScrollTrigger from "gsap/ScrollTrigger";
 import { useRef } from "react";
 import { MdArrowOutward } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 gsap.registerPlugin(_ScrollTrigger);
 
@@ -28,6 +29,20 @@ export default function ProjectSection() {
       link: "https://task-manager-1-a6hb.onrender.com/login",
       codelink: "https://github.com/arjunisonline/Task-Manager",
       skills: ["React", "Render", "Netlify", "Deployment"],
+    },
+    {
+      name: "School Frontend & ERP",
+      desc: "A comprehensive enterprise resource planning system for schools built with Next.js. Features robust database management and an automated student attendance tracking system.",
+      link: "https://sreenandanamschools.com",
+      codelink: "",
+      skills: ["Next.js", "Supabase"],
+    },
+    {
+      name: "Home Server",
+      desc: "A personal self-hosted cloud and media server repurposed from an old Dell laptop. Hosted services include Pi-hole for network-wide ad blocking and Jellyfin for media streaming.",
+      link: "/home-server",
+      codelink: "",
+      skills: ["Docker", "Pi-hole", "Jellyfin", "Self-Hosting", "Linux"],
     },
   ];
 
@@ -57,7 +72,11 @@ export default function ProjectSection() {
   );
   return (
     <>
-      <section id="projects" ref={sectionRef}>
+      <section
+        id="projects"
+        ref={sectionRef}
+        className="min-h-dvh flex flex-col justify-center py-16"
+      >
         <h1 className="text-center text-4xl md:text-6xl">Projects</h1>
         <div className="grid grid-cols-1 md:grid-cols-3 m-4 md:m-30">
           {projectData.map((item, index) => (
@@ -90,7 +109,15 @@ export default function ProjectSection() {
                 </div>
 
                 <div className="flex gap-3 mt-auto">
-                  {item.link && (
+                  {item.link && item.link.startsWith("/") ? (
+                    <Link
+                      to={item.link}
+                      className="flex items-center justify-center gap-1 p-2 border border-white/20 rounded-xl hover:bg-white/40 w-full text-sm cursor-pointer"
+                    >
+                      <MdArrowOutward />
+                      View Specs
+                    </Link>
+                  ) : item.link ? (
                     <a
                       target="_blank"
                       href={item.link}
@@ -99,15 +126,17 @@ export default function ProjectSection() {
                       <MdArrowOutward />
                       Demo
                     </a>
-                  )}
+                  ) : null}
 
-                  <a
-                    target="_blank"
-                    href={item.codelink}
-                    className="flex items-center justify-center p-2 bg-white/20 rounded-xl hover:bg-white/40 w-full text-sm cursor-pointer"
-                  >
-                    Github
-                  </a>
+                  {item.codelink && (
+                    <a
+                      target="_blank"
+                      href={item.codelink}
+                      className="flex items-center justify-center p-2 bg-white/20 rounded-xl hover:bg-white/40 w-full text-sm cursor-pointer"
+                    >
+                      Github
+                    </a>
+                  )}
                 </div>
               </div>
             </div>

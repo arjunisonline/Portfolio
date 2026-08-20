@@ -88,7 +88,7 @@ export default function ExperienceSection() {
     },
   );
   return (
-    <section id="experience" ref={sectionRef}>
+    <section id="experience" ref={sectionRef} className="min-h-dvh flex flex-col justify-center py-16">
       <h1 className="text-center text-4xl md:text-6xl mb-20">Experience</h1>
 
       <div className="relative w-full max-w-sm sm:max-w-md md:max-w-2xl lg:max-w-4xl xl:max-w-5xl mx-auto px-4">

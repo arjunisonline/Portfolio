@@ -20,6 +20,7 @@ const frameworkData = [
   { img: "skills/languages/tailwind.svg", title: "Tailwind" },
   { img: "skills/languages/exp.png", title: "Express" },
   { img: "skills/languages/next.svg", title: "Next.js" },
+  { img: "https://img.icons8.com/doodle/48/svetle.png", title: "Svelte" },
 ];
 
 const toolsData = [
@@ -31,6 +32,26 @@ const toolsData = [
   { img: "skills/postman.svg", title: "Postman" },
   { img: "skills/sublime.svg", title: "Sublime" },
   { img: "skills/vs.svg", title: "VS Code" },
+];
+
+const aiToolsData = [
+  {
+    img: "https://img.icons8.com/fluency/48/chatgpt--v2.png",
+    title: "ChatGPT",
+  },
+  {
+    img: "https://img.icons8.com/fluency/48/bard.png",
+    title: "Gemini",
+  },
+  {
+    img: "https://img.icons8.com/fluency/48/perplexity-ai.png",
+    title: "Perplexity",
+  },
+  { img: "https://cdn.simpleicons.org/githubcopilot/white", title: "Copilot" },
+  {
+    img: "https://img.icons8.com/fluency/48/claude-ai.png",
+    title: "Claude",
+  },
 ];
 
 const firstLoopedSkills = [
@@ -51,19 +72,29 @@ const thirdLoopedSkills = [
   ...toolsData,
   ...toolsData,
 ];
+const fourthLoopedSkills = [
+  ...aiToolsData,
+  ...aiToolsData,
+  ...aiToolsData,
+  ...aiToolsData,
+];
+
+import GithubGraph from "../github/GithubGraph";
 
 export default function SkillSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const firstTrackRef = useRef<HTMLDivElement>(null);
   const secondTrackRef = useRef<HTMLDivElement>(null);
   const thirdTrackRef = useRef<HTMLDivElement>(null);
+  const fourthTrackRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
       const firstTrack = firstTrackRef.current;
       const secondTrack = secondTrackRef.current;
       const thirdTrack = thirdTrackRef.current;
-      if (!firstTrack || !secondTrack || !thirdTrack) return;
+      const fourthTrack = fourthTrackRef.current;
+      if (!firstTrack || !secondTrack || !thirdTrack || !fourthTrack) return;
 
       const totalWidth = firstTrack.scrollWidth / 4;
 
@@ -102,16 +133,33 @@ export default function SkillSection() {
           },
         },
       );
+
+      gsap.fromTo(
+        fourthTrack,
+        { x: -totalWidth },
+        {
+          x: 0,
+          duration: 30,
+          ease: "none",
+          repeat: -1,
+          modifiers: {
+            x: gsap.utils.unitize((x) => parseFloat(x) % totalWidth),
+          },
+        },
+      );
     },
     { scope: containerRef },
   );
 
   return (
-    <section className="overflow-x-hidden py-16 mx-4 md:mx-30">
+    <section className="overflow-x-hidden py-16 mx-4 md:mx-30 min-h-dvh flex flex-col justify-center">
       <h2 className="text-center text-4xl md:text-6xl mb-12">My Skills</h2>
 
-      <div ref={containerRef} className="overflow-hidden w-full">
-        <div ref={firstTrackRef} className="flex items-center gap-10 w-max will-change-transform">
+      <div ref={containerRef} className="overflow-hidden w-full mb-16">
+        <div
+          ref={firstTrackRef}
+          className="flex items-center gap-10 w-max will-change-transform"
+        >
           {firstLoopedSkills.map((data, index) => (
             <div
               key={index}
@@ -169,7 +217,31 @@ export default function SkillSection() {
             </div>
           ))}
         </div>
+
+        <div
+          ref={fourthTrackRef}
+          className="flex items-center gap-10 w-max mt-6"
+        >
+          {fourthLoopedSkills.map((data, index) => (
+            <div
+              key={index}
+              className="flex items-center gap-4 px-6 py-3 rounded-xl shadow-sm hover:shadow-md transition-shadow cursor-default select-none"
+              style={{ minWidth: "160px" }}
+            >
+              <img
+                src={data.img}
+                alt={data.title}
+                className="w-8 h-8 object-contain"
+              />
+              <p className="text-md font-medium whitespace-nowrap">
+                {data.title}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
+
+      <GithubGraph />
     </section>
   );
 }

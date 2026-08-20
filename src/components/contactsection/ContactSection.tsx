@@ -36,7 +36,7 @@ export default function ContactSection() {
   };
   return (
     <>
-      <section id="contact">
+      <section id="contact" className="min-h-dvh flex flex-col justify-center py-16">
         <h1 className="text-center text-4xl md:text-6xl">Let's Connect</h1>
         <div className="my-30 flex flex-col md:flex-row  justify-center gap-10 mx-4 md:mx-30">
           <form

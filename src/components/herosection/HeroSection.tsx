@@ -32,7 +32,7 @@ export default function HeroSection() {
   return (
     <div
       ref={containerRef}
-      className="w-dvw h-dvh relative flex flex-col items-center justify-center px-6"
+      className="hero-section w-dvw h-dvh relative flex flex-col items-center justify-center px-6"
     >
       <div className="text-center space-y-4 max-w-3xl">
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight">
