@@ -36,7 +36,7 @@ export default function GamesSection() {
       ref={sectionRef} 
       className="min-h-dvh flex flex-col pt-32 pb-20 relative overflow-hidden"
     >
-      <div className="mx-4 md:mx-30">
+      <div className="mx-4 md:mx-10 lg:mx-30">
         
         {/* Header Section */}
         <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">

@@ -29,7 +29,7 @@ export default function HomePage() {
           speed={1}
         />
       </div>
-      <div className="relative w-full min-h-full">
+      <div className="relative w-full min-h-full overflow-x-hidden">
 
         <Navbar />
 

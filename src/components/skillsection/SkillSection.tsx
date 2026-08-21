@@ -152,7 +152,7 @@ export default function SkillSection() {
   );
 
   return (
-    <section className="overflow-x-hidden py-16 mx-4 md:mx-30 min-h-dvh flex flex-col justify-center">
+    <section className="overflow-x-hidden py-16 mx-4 md:mx-10 lg:mx-30 min-h-dvh flex flex-col justify-center">
       <h2 className="text-center text-4xl md:text-6xl mb-12">My Skills</h2>
 
       <div ref={containerRef} className="overflow-hidden w-full mb-16">

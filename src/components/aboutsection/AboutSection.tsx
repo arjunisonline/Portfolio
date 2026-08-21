@@ -30,8 +30,8 @@ export default function AboutSection() {
     <>
       <section id="about" ref={containerRef} className="min-h-dvh flex flex-col justify-center py-16">
         <h1 className="text-center text-4xl md:text-6xl">About Me</h1>
-        <div className="mx-4 md:mx-30">
-          <div className="grid grid-cols-1 md:grid-cols-2 justify-evenly my-10 md:my-30 items-center">
+        <div className="mx-4 md:mx-10 lg:mx-30">
+          <div className="grid grid-cols-1 lg:grid-cols-2 justify-evenly my-10 md:my-30 items-center">
             <div className="about-item md:w-md md:h-md h-xs w-xs mx-auto rounded-full overflow-hidden bg-cyan-50 mb-5">
               <img
                 src="images/img.png"
