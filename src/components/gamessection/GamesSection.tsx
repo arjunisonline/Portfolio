@@ -44,7 +44,7 @@ export default function GamesSection() {
             <h2 className="text-sm md:text-base font-bold tracking-[0.3em] text-(--primaryColor) uppercase mb-3">
               Player Profile
             </h2>
-            <h1 className="text-5xl md:text-7xl font-black text-white uppercase tracking-tighter leading-none mb-4">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white uppercase tracking-tighter leading-none mb-4">
               After Hours
             </h1>
             <p className="text-lg md:text-2xl text-white/50 font-light">
@@ -54,7 +54,7 @@ export default function GamesSection() {
         </div>
 
         {/* Player Stats */}
-        <div className="stats-container grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
+        <div className="stats-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
           <div className="stat-card flex flex-col p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md">
             <Gamepad2 className="text-(--primaryColor) mb-3" size={24} />
             <span className="text-xs uppercase tracking-wider text-white/40 font-bold mb-1">Fav Genre</span>

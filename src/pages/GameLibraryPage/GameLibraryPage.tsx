@@ -1,25 +1,23 @@
 import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
 import GameLibrary from "../../components/gamessection/GameLibrary";
-import Galaxy from "../../components/ui/Galaxy";
+import Beams from "@/components/ui/beams";
 
 export default function GameLibraryPage() {
   return (
     <>
       <div className="fixed inset-0 w-full h-screen pointer-events-none bg-black">
-        <Galaxy
-          mouseRepulsion
-          mouseInteraction
-          density={1}
-          glowIntensity={0.3}
-          saturation={0}
-          hueShift={140}
-          twinkleIntensity={0.3}
-          rotationSpeed={0.1}
-          repulsionStrength={2}
-          autoCenterRepulsion={0}
-          starSpeed={0.5}
-          speed={1}
+        <Beams
+          beamWidth={3}
+          beamHeight={30}
+          beamNumber={20}
+          lightColor="#ffffff"
+          speed={2}
+          noiseIntensity={1.75}
+          scale={0.2}
+          rotation={30}
+          beamColor="#000000"
+          backgroundColor="#000000"
         />
       </div>
 

@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef, useState, useEffect } from "react";
 import { useLenis } from "lenis/react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { Menu, X } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -74,13 +75,13 @@ export default function Navbar() {
           ref={navRef}
           className="z-50 fixed top-10 left-1/2 -translate-x-1/2 flex gap-10 max-w-3xl h-15 text-xl bg-black/30 backdrop-blur-lg border border-white/20 rounded-2xl shadow-xl items-center px-8"
         >
-          <a href="/" onClick={(e) => handleNavClick(e, "/")}>
+          <a href="/" onClick={(e) => handleNavClick(e, "/")} className="cursor-pointer hover:text-white/70 transition-colors duration-200">
             Home
           </a>
-          <a href="#about" onClick={(e) => handleNavClick(e, "#about")}>
+          <a href="#about" onClick={(e) => handleNavClick(e, "#about")} className="cursor-pointer hover:text-white/70 transition-colors duration-200">
             About
           </a>
-          <a href="#projects" onClick={(e) => handleNavClick(e, "#projects")}>
+          <a href="#projects" onClick={(e) => handleNavClick(e, "#projects")} className="cursor-pointer hover:text-white/70 transition-colors duration-200">
             Projects
           </a>
           <a
@@ -92,46 +93,52 @@ export default function Navbar() {
           <a href="#games" onClick={(e) => handleNavClick(e, "#games")}>
             Games
           </a>
-          <a href="#contact" onClick={(e) => handleNavClick(e, "#contact")}>
+          <a href="#contact" onClick={(e) => handleNavClick(e, "#contact")} className="cursor-pointer hover:text-white/70 transition-colors duration-200">
             Contact
           </a>
         </div>
       </div>
 
       <div className="flex md:hidden justify-between items-center p-4">
-        <button className="text-4xl z-50" onClick={() => setIsOpen(!isOpen)}>
-          ☰
+        <button 
+          className="text-white z-50 p-2 rounded-lg bg-black/30 backdrop-blur-md border border-white/20" 
+          onClick={() => setIsOpen(!isOpen)}
+          aria-expanded={isOpen}
+          aria-label="Toggle navigation menu"
+        >
+          {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
       {isOpen && (
         <div
-          className={`fixed top-15 left-4 right-4 p-6 backdrop-blur-lg rounded-2xl border flex flex-col items-center gap-6 text-xl z-40 border-white/20
+          className={`fixed top-20 left-4 right-4 p-6 bg-black/80 backdrop-blur-xl rounded-2xl flex flex-col items-center gap-4 text-xl z-40 border-white/20 border shadow-2xl
 transition-all duration-300 ${
             isOpen
               ? "opacity-100 translate-y-0"
               : "opacity-0 -translate-y-5 pointer-events-none"
           }`}
         >
-          <a href="/" onClick={(e) => handleNavClick(e, "/")}>
+          <a href="/" onClick={(e) => handleNavClick(e, "/")} className="w-full text-center py-3 rounded-xl hover:bg-white/10 active:bg-white/20 transition-colors duration-200 cursor-pointer">
             Home
           </a>
-          <a href="#about" onClick={(e) => handleNavClick(e, "#about")}>
+          <a href="#about" onClick={(e) => handleNavClick(e, "#about")} className="w-full text-center py-3 rounded-xl hover:bg-white/10 active:bg-white/20 transition-colors duration-200 cursor-pointer">
             About
           </a>
-          <a href="#projects" onClick={(e) => handleNavClick(e, "#projects")}>
+          <a href="#projects" onClick={(e) => handleNavClick(e, "#projects")} className="w-full text-center py-3 rounded-xl hover:bg-white/10 active:bg-white/20 transition-colors duration-200 cursor-pointer">
             Projects
           </a>
           <a
             href="#experience"
             onClick={(e) => handleNavClick(e, "#experience")}
+            className="w-full text-center py-3 rounded-xl hover:bg-white/10 active:bg-white/20 transition-colors duration-200 cursor-pointer"
           >
             Experience
           </a>
-          <a href="#games" onClick={(e) => handleNavClick(e, "#games")}>
+          <a href="#games" onClick={(e) => handleNavClick(e, "#games")} role="menuitem" className="w-full text-center py-3 rounded-xl hover:bg-white/10 active:bg-white/20 transition-colors duration-200 cursor-pointer">
             Games
           </a>
-          <a href="#contact" onClick={(e) => handleNavClick(e, "#contact")}>
+          <a href="#contact" onClick={(e) => handleNavClick(e, "#contact")} role="menuitem" className="w-full text-center py-3 rounded-xl hover:bg-white/10 active:bg-white/20 transition-colors duration-200 cursor-pointer">
             Contact
           </a>
         </div>

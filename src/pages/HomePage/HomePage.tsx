@@ -8,29 +8,26 @@ import ProjectSection from "../../components/projectsection/ProjectSection";
 import SkillSection from "../../components/skillsection/SkillSection";
 
 import GamesSection from "../../components/gamessection/GamesSection";
-import Galaxy from "../../components/ui/Galaxy";
+import Beams from "@/components/ui/beams";
 
 export default function HomePage() {
   return (
     <>
-      <div className="fixed inset-0 w-full h-screen pointer-events-none bg-black">
-        <Galaxy
-          mouseRepulsion
-          mouseInteraction
-          density={1}
-          glowIntensity={0.3}
-          saturation={0}
-          hueShift={140}
-          twinkleIntensity={0.3}
-          rotationSpeed={0.1}
-          repulsionStrength={2}
-          autoCenterRepulsion={0}
-          starSpeed={0.5}
-          speed={1}
+      <div className="fixed inset-0 w-full h-screen pointer-events-none -z-10 bg-black dark:bg-black/90">
+        <Beams
+          beamWidth={3}
+          beamHeight={30}
+          beamNumber={20}
+          lightColor="#ffffff"
+          speed={2}
+          noiseIntensity={1.75}
+          scale={0.2}
+          rotation={30}
+          beamColor="#000000"
+          backgroundColor="#000000"
         />
       </div>
-      <div className="relative w-full min-h-full overflow-x-hidden">
-
+      <div className="relative w-full min-h-full overflow-x-hidden text-foreground">
         <Navbar />
 
         <HeroSection />

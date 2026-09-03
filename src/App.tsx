@@ -1,15 +1,16 @@
-import { useEffect } from "react";
+import { Suspense, lazy, useEffect } from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
 import { ReactLenis, useLenis } from "lenis/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./App.css";
-import HomePage from "./pages/HomePage/HomePage";
+
 import ViewResume from "./utils/resume/ViewResume";
 
-import GameLibraryPage from "./pages/GameLibraryPage/GameLibraryPage";
-import HomeServerPage from "./pages/HomeServerPage/HomeServerPage";
+const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
+const GameLibraryPage = lazy(() => import("./pages/GameLibraryPage/GameLibraryPage"));
+const HomeServerPage = lazy(() => import("./pages/HomeServerPage/HomeServerPage"));
 
 function App() {
   useEffect(() => {
@@ -27,12 +28,14 @@ function App() {
       <GsapLenisSync />
       <BrowserRouter>
         <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/resume" element={<ViewResume />} />
-          <Route path="/games" element={<GameLibraryPage />} />
-          <Route path="/home-server" element={<HomeServerPage />} />
-        </Routes>
+        <Suspense fallback={<div className="h-screen w-full flex items-center justify-center bg-background text-foreground">Loading...</div>}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/resume" element={<ViewResume />} />
+            <Route path="/games" element={<GameLibraryPage />} />
+            <Route path="/home-server" element={<HomeServerPage />} />
+          </Routes>
+        </Suspense>
       </BrowserRouter>
       <Analytics />
     </ReactLenis>

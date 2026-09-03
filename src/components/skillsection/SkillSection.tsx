@@ -163,7 +163,7 @@ export default function SkillSection() {
           {firstLoopedSkills.map((data, index) => (
             <div
               key={index}
-              className="flex items-center gap-4 px-6 py-3 rounded-xl shadow-sm hover:shadow-md transition-shadow cursor-default select-none"
+              className="flex items-center gap-4 px-6 py-3 backdrop-blur-md border-white-50/30 border rounded-xl shadow-sm hover:shadow-md transition-shadow cursor-default select-none"
               style={{ minWidth: "160px" }}
             >
               <img
@@ -185,7 +185,7 @@ export default function SkillSection() {
           {secondLoopedSkills.map((data, index) => (
             <div
               key={index}
-              className="flex items-center gap-4 px-6 py-3 rounded-xl shadow-sm hover:shadow-md transition-shadow cursor-default select-none"
+              className="flex items-center gap-4 px-6 py-3 backdrop-blur-md border-white-50/30 border rounded-xl shadow-sm hover:shadow-md transition-shadow cursor-default select-none"
               style={{ minWidth: "160px" }}
             >
               <img
@@ -203,7 +203,7 @@ export default function SkillSection() {
           {thirdLoopedSkills.map((data, index) => (
             <div
               key={index}
-              className="flex items-center gap-4 px-6 py-3 rounded-xl shadow-sm hover:shadow-md transition-shadow cursor-default select-none"
+              className="flex items-center gap-4 px-6 py-3 backdrop-blur-md border-white-50/30 border rounded-xl shadow-sm hover:shadow-md transition-shadow cursor-default select-none"
               style={{ minWidth: "160px" }}
             >
               <img
@@ -225,7 +225,7 @@ export default function SkillSection() {
           {fourthLoopedSkills.map((data, index) => (
             <div
               key={index}
-              className="flex items-center gap-4 px-6 py-3 rounded-xl shadow-sm hover:shadow-md transition-shadow cursor-default select-none"
+              className="flex items-center gap-4 px-6 py-3 backdrop-blur-md border-white-50/30 border rounded-xl shadow-sm hover:shadow-md transition-shadow cursor-default select-none"
               style={{ minWidth: "160px" }}
             >
               <img

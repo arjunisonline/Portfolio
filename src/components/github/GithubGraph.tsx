@@ -18,6 +18,7 @@ export default function GithubGraph() {
   const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(true);
   const containerRef = useRef<HTMLDivElement>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const fetchContributions = async () => {
@@ -52,6 +53,18 @@ export default function GithubGraph() {
 
     fetchContributions();
   }, []);
+
+  // Auto-scroll to the rightmost side on load so user sees latest contributions
+  useEffect(() => {
+    if (!loading && data.length > 0 && scrollContainerRef.current) {
+      // Small timeout ensures the DOM has updated sizes before scrolling
+      setTimeout(() => {
+        if (scrollContainerRef.current) {
+          scrollContainerRef.current.scrollLeft = scrollContainerRef.current.scrollWidth;
+        }
+      }, 50);
+    }
+  }, [loading, data]);
 
   useGSAP(() => {
     if (!loading && data.length > 0) {
@@ -100,30 +113,37 @@ export default function GithubGraph() {
         </div>
       </div>
 
-      <div className="w-full max-w-5xl overflow-x-auto pb-4 pt-8 custom-scrollbar">
+      <div 
+        ref={scrollContainerRef}
+        className="w-full max-w-5xl overflow-x-auto pb-4 pt-8 custom-scrollbar scroll-smooth"
+      >
         {loading ? (
           <div className="h-40 w-full flex items-center justify-center text-white/40">
             Fetching GitHub data...
           </div>
         ) : (
-          <div 
-            className="grid gap-1 min-w-max mx-auto px-4 md:px-0"
-            style={{ 
-              gridTemplateRows: 'repeat(7, 1fr)',
-              gridAutoFlow: 'column'
-            }}
-          >
-            {data.map((day) => (
-              <div
-                key={day.date}
-                className={`github-square w-3 h-3 md:w-3.5 md:h-3.5 rounded-sm ${getLevelColor(day.level)} hover:ring-2 hover:ring-white transition-all cursor-pointer group relative`}
-              >
-                {/* Tooltip */}
-                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-black/90 text-white text-xs rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
-                  {day.count} contributions on {new Date(day.date).toLocaleDateString()}
-                </div>
-              </div>
-            ))}
+          <div className="w-full flex justify-start md:justify-center min-w-max">
+            <div 
+              className="grid gap-1 px-4 md:px-0"
+              style={{ 
+                gridTemplateRows: 'repeat(7, 1fr)',
+                gridAutoFlow: 'column'
+              }}
+            >
+              {data.map((day) => {
+                return (
+                  <div
+                    key={day.date}
+                    className={`github-square w-3 h-3 md:w-3.5 md:h-3.5 rounded-sm ${getLevelColor(day.level)} hover:ring-2 hover:ring-white transition-all cursor-pointer group relative`}
+                  >
+                    {/* Tooltip */}
+                    <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-black/90 text-white text-xs rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
+                      {day.count} contributions on {new Date(day.date).toLocaleDateString()}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         )}
       </div>
@@ -143,3 +163,4 @@ export default function GithubGraph() {
     </div>
   );
 }
+

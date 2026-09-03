@@ -78,11 +78,11 @@ export default function ProjectSection() {
         className="min-h-dvh flex flex-col justify-center py-16"
       >
         <h1 className="text-center text-4xl md:text-6xl">Projects</h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 m-4 md:mx-10 lg:mx-30">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 m-4 md:mx-10 lg:mx-30">
           {projectData.map((item, index) => (
             <div
               key={index}
-              className="m-5  border-2 border-white/50 backdrop-blur-xs bg-white/5 transition hover:border-(--primaryColor) rounded-2xl p-2 flex justify-center project-card"
+              className="border-2 border-white/50 backdrop-blur-xs bg-white/5 transition hover:border-(--primaryColor) rounded-2xl p-4 flex justify-center project-card"
             >
               <div className="flex flex-col gap-3 w-full">
                 {/* <div className="h-full w-full flex items-center ">
@@ -97,7 +97,7 @@ export default function ProjectSection() {
                   {item.name}
                 </h2>
                 <p className="text-md text-gray-300 ">{item.desc}</p>
-                <div className="grid grid-cols-3 gap-5 items-center">
+                <div className="flex flex-wrap gap-2 items-center">
                   {item.skills.map((skill, i) => (
                     <span
                       key={i}
@@ -112,7 +112,8 @@ export default function ProjectSection() {
                   {item.link && item.link.startsWith("/") ? (
                     <Link
                       to={item.link}
-                      className="flex items-center justify-center gap-1 p-2 border border-white/20 rounded-xl hover:bg-white/40 w-full text-sm cursor-pointer"
+                      aria-label={`View specs for ${item.name}`}
+                      className="flex items-center justify-center gap-1 p-2 border border-white/20 rounded-xl hover:bg-white/40 w-full text-sm cursor-pointer transition-colors duration-200"
                     >
                       <MdArrowOutward />
                       View Specs
@@ -121,7 +122,8 @@ export default function ProjectSection() {
                     <a
                       target="_blank"
                       href={item.link}
-                      className="flex items-center justify-center gap-1 p-2 border border-white/20 rounded-xl hover:bg-white/40 w-full text-sm cursor-pointer"
+                      aria-label={`View demo for ${item.name}`}
+                      className="flex items-center justify-center gap-1 p-2 border border-white/20 rounded-xl hover:bg-white/40 w-full text-sm cursor-pointer transition-colors duration-200"
                     >
                       <MdArrowOutward />
                       Demo
@@ -132,7 +134,8 @@ export default function ProjectSection() {
                     <a
                       target="_blank"
                       href={item.codelink}
-                      className="flex items-center justify-center p-2 bg-white/20 rounded-xl hover:bg-white/40 w-full text-sm cursor-pointer"
+                      aria-label={`View source code for ${item.name}`}
+                      className="flex items-center justify-center p-2 bg-white/20 rounded-xl hover:bg-white/40 w-full text-sm cursor-pointer transition-colors duration-200"
                     >
                       Github
                     </a>

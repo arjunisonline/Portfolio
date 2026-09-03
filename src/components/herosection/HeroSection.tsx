@@ -20,11 +20,6 @@ export default function HeroSection() {
           speed: 0.1,
         },
       });
-      tl.to(".textScramble", {
-        duration: 2,
-        text: "I'm a software engineer who turns complex ideas into performant, user-friendly web applications",
-        ease: "none",
-      });
     },
     { scope: containerRef },
   );
@@ -40,11 +35,7 @@ export default function HeroSection() {
           <span className="text-(--primaryColor) nameScramble">Arjun</span>
         </h1>
 
-        <h2 className="text-xl sm:text-2xl md:text-3xl min-h-[40px] textScramble"></h2>
-      </div>
-      <div className="flex my-10 gap-5">
-        <a href="/resume" target="_blank" className="px-3 py-1 backdrop-blur-md border border-white/40 rounded-xl text-md xl:text-xl">Resume</a>
-        <a href="#contact" className="px-3 py-1 backdrop-blur-md border border-white/40 rounded-xl text-md xl:text-xl">Hire Me</a>
+        <h2 className="text-xl sm:text-2xl md:text-3xl min-h-10 textScramble"></h2>
       </div>
     </div>
   );
