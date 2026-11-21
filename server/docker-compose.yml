@@ -1,0 +1,83 @@
+# ==============================================================================
+# Self-Hosted Home Server Stack
+# Hardware: Repurposed Dell Laptop (Debian 12 Headless, Battery UPS)
+# Monitored by: Beszel (Lightweight Agent & Telemetry)
+# ==============================================================================
+
+version: "3.8"
+
+services:
+  # ----------------------------------------------------------------------------
+  # Beszel Agent (Zero-Overhead Server Telemetry)
+  # Consumes <15MB RAM and <0.5% CPU
+  # ----------------------------------------------------------------------------
+  beszel-agent:
+    image: henrygd/beszel-agent:latest
+    container_name: beszel-agent
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /:/extra-filesystems/root:ro
+    environment:
+      PORT: 45876
+      # Replace with your public key generated from your Beszel Hub:
+      KEY: "${BESZEL_KEY:-ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGour_beszel_public_key_here}"
+      EXTRA_FILESYSTEMS: "/extra-filesystems/root"
+
+  # ----------------------------------------------------------------------------
+  # Pi-hole (Network DNS Sinkhole & Ad Blocker)
+  # Blocks telemetry, ads, and malicious domains across all devices on the LAN
+  # ----------------------------------------------------------------------------
+  pihole:
+    image: pihole/pihole:latest
+    container_name: pihole
+    restart: unless-stopped
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "8080:80/tcp"
+    environment:
+      TZ: "Asia/Kolkata"
+      WEBPASSWORD: "${PIHOLE_PASSWORD:-AdminPassword123!}"
+      FTLCONF_LOCAL_IPV4: "192.168.1.100"
+    volumes:
+      - ./data/pihole/etc-pihole:/etc/pihole
+      - ./data/pihole/etc-dnsmasq.d:/etc/dnsmasq.d
+    cap_add:
+      - NET_ADMIN
+
+  # ----------------------------------------------------------------------------
+  # Jellyfin (Open Source Media Streaming Platform)
+  # Streams personal video and audio collections with hardware transcoding
+  # ----------------------------------------------------------------------------
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    container_name: jellyfin
+    restart: unless-stopped
+    ports:
+      - "8096:8096"
+    volumes:
+      - ./data/jellyfin/config:/config
+      - ./data/jellyfin/cache:/cache
+      - /mnt/storage/media:/media:ro
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Kolkata
+    # Optional hardware acceleration for Intel QuickSync:
+    devices:
+      - /dev/dri:/dev/dri
+
+  # ----------------------------------------------------------------------------
+  # Cloudflare Tunnel (Secure Zero Trust Ingress)
+  # Securely exposes services without open router ports or static public IP
+  # ----------------------------------------------------------------------------
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared
+    restart: unless-stopped
+    command: tunnel run
+    environment:
+      - TUNNEL_TOKEN=${CLOUDFLARE_TUNNEL_TOKEN}
+

@@ -39,10 +39,10 @@ export default function ProjectSection() {
     },
     {
       name: "Home Server",
-      desc: "A personal self-hosted cloud and media server repurposed from an old Dell laptop. Hosted services include Pi-hole for network-wide ad blocking and Jellyfin for media streaming.",
+      desc: "A personal self-hosted cloud and media server repurposed from an old Dell laptop. Monitored with Beszel for lightweight real-time telemetry, running Pi-hole and Jellyfin in Docker.",
       link: "/home-server",
       codelink: "",
-      skills: ["Docker", "Pi-hole", "Jellyfin", "Self-Hosting", "Linux"],
+      skills: ["Beszel", "Docker", "Pi-hole", "Jellyfin", "Self-Hosting", "Linux"],
     },
   ];
 
